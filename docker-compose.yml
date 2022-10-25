@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  samyan-account-service:
+    restart: on-failure
+    image: image-8080-samyan-account-api
+    container_name: container-8080-samyan-account-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    networks:
+      - app-network
+    ports:
+      - '8080:8000'
+
+  samyan-postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    ports:
+      - '${DATABASE_PORT}:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

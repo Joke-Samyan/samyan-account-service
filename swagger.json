@@ -1,0 +1,36 @@
+{
+    "swaggerDefinition": {
+        "openapi": "3.0.1",
+        "info": {
+            "version": "0.0.1",
+            "title": "Samyan Account Service",
+            "description": "For managing and inpect each transaction",
+            "contact": {
+                "name": "Thanat Raktham"
+            }
+        },
+        "servers": [
+            {
+                "url": "http://localhost:8080"
+            }
+        ],
+        "components": {
+            "securitySchemes": {
+                "bearerAuth": {
+                    "type": "apiKey",
+                    "name": "token",
+                    "in": "header",
+                    "description": "Authentication token 555"
+                }
+            }
+        },
+        "security": [
+            {
+                "bearerAuth": []
+            }
+        ]
+    },
+    "apis": [
+        "./*.ts"
+    ]
+}
