@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   samyan-account-service:
     restart: on-failure
@@ -8,12 +8,12 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - '.:/app'
-      - '/app/node_modules'
+      - ".:/app"
+      - "/app/node_modules"
     networks:
       - app-network
     ports:
-      - '8080:8000'
+      - "8080:8080"
 
   samyan-postgres:
     image: postgres:14.1-alpine
@@ -22,9 +22,11 @@ services:
       - POSTGRES_USER=${DATABASE_USER}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     ports:
-      - '${DATABASE_PORT}:5432'
+      - "${DATABASE_DOCKER_PORT}:5432"
     volumes:
       - db:/var/lib/postgresql/data
+    networks:
+      - app-network
 
 volumes:
   db:
