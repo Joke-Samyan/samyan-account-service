@@ -1,14 +1,11 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "rootDir": "./",
-        "outDir": "./build",
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "strict": true
-    },
-    "include": [
-        "**/*"
-    ]
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "rootDir": "./",
+    "outDir": "./build",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": true
+  }
 }

@@ -248,10 +248,10 @@ app.get(
   }
 );
 
-if (process.env.NODE_ENV === "development") {
-  const swaggerDocs = swaggerJsDoc(swaggerJson);
-  app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-}
+// if (process.env.NODE_ENV === "development") {
+// }
+const swaggerDocs = swaggerJsDoc(swaggerJson);
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.listen(port, () => {
   console.log(

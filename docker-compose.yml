@@ -10,27 +10,28 @@ services:
     volumes:
       - ".:/app"
       - "/app/node_modules"
+      - "/app/build"
     networks:
       - app-network
     ports:
       - "8080:8080"
 
-  samyan-postgres:
-    image: postgres:14.1-alpine
-    restart: always
-    environment:
-      - POSTGRES_USER=${DATABASE_USER}
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-    ports:
-      - "${DATABASE_DOCKER_PORT}:5432"
-    volumes:
-      - db:/var/lib/postgresql/data
-    networks:
-      - app-network
+#   samyan-postgres:
+#     image: postgres:14.1-alpine
+#     restart: always
+#     environment:
+#       - POSTGRES_USER=${DATABASE_USER}
+#       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+#     ports:
+#       - "${DATABASE_DOCKER_PORT}:5432"
+#     volumes:
+#       - db:/var/lib/postgresql/data
+#     networks:
+#       - app-network
 
-volumes:
-  db:
-    driver: local
+# volumes:
+#   db:
+#     driver: local
 
 networks:
   app-network:
